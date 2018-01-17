@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/customer"
+	xmlns:tns="http://www.example.org/customer"
+	elementFormDefault="qualified"
+	xmlns:pref="http://www.example.org/Address" xmlns:pref1="http://www.example.org/PaymentMethod">
+
+    <import schemaLocation="PaymentMethod.xsd" namespace="http://www.example.org/PaymentMethod"></import>
+    <import schemaLocation="Address.xsd"
+		namespace="http://www.example.org/Address">
+	</import>
+	<complexType name="customer">
+		<sequence>
+			<element name="customerId" type="int"></element>
+			<element name="name" type="string"></element>
+			<element name="dateofBirth" type="date"></element>
+			<element name="annualSalary" type="float"></element>
+			<element name="address" type="pref:address"></element>
+			<element name="paymentMethod" type="pref1:paymentMethod"></element>
+		</sequence>
+	</complexType>
+
+	<element name="customer" type="tns:customer"></element>
+
+
+
+</schema>
